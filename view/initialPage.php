@@ -47,7 +47,7 @@
             <nav>
                 <ul class="nav-links">
                     <li>
-                        <a href="#banner">
+                        <a href="#">
                             Início
                         </a>
                     </li>
