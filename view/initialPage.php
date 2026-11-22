@@ -1,5 +1,3 @@
-<?php?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,7 +31,7 @@
                         </li>
 
                         <li>
-                            <a href="registerPage.php">
+                            <a href="frmNovoCadastro.php">
                                 Cadastro
                             </a>
                         </li>
@@ -116,6 +114,9 @@
                     <a href="tel:+5535988160020" class="footer-link">
                         <i class="fa-solid fa-phone"></i> (35) 98816-0020
                     </a>
+                    <a href="mailto:atendimentonitrocb2@gmail.com" class="footer-link">
+                        <i class="fa-solid fa-envelope"></i> atendimentonitrocb2@gmail.com
+                    </a>
                 </div>
 
                 <div class="footer-col">
@@ -134,7 +135,7 @@
 
                 <div class="footer-col">
                     <h3>Onde estamos</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.446689605749!2d-45.2751498!3d-20.8943409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b53e4c6d5de3db%3A0x3ef8f937fea446a7!2sLan%20House%20Nitro%20Cyber%20Internet%20%26%20Games!5e0!3m2!1sen!2sbr!4v1795323982798!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
 
             </div>
