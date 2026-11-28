@@ -31,5 +31,9 @@
         public function executaSQL($sql) {
             return $this->conexao->query($sql);
         }
+
+        public function getConexao() {
+            return $this->conexao;
+        }
 }
 ?>

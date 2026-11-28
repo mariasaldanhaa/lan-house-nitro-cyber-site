@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
+    <title>Lista de usuários</title>
     <link rel="stylesheet" href="../css/listPage.css"/>
     <link rel="icon" type="image/x-icon" href="../images/favicon.svg"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -35,16 +35,21 @@
                             <td class="menu-cadastros">
                                 <b>CADASTRO</b><br>
                                 <a href="frmListaCadastro.php">
-                                    Lista de Cadastros
+                                    Lista de Usuários
+                                </a>
+                                <br/>
+                                <a href="frmListaFuncionario.php">
+                                    Lista de funcionários
                                 </a>
                                 <br>
-                                <a href="frmNovoCadastro.php">
-                                    Novo Cadastro
+                                <a href="initialPage.php">
+                                    Voltar
                                 </a>
+                                <br>
                             </td>
 
                             <td>
-                                <h2>LISTA DE CADASTROS</h2>
+                                <h2>LISTA DE USUÁRIOS</h2>
 
                                 <?php
                                     $cadastro = new clsCadastro();

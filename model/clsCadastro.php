@@ -66,7 +66,7 @@ class clsCadastro extends clsComum{
 
     public function pegaCadastros(){
         $conexao = new clsConexao();
-        $sql = 'SELECT * FROM tb_cadastro;';
+        $sql = "SELECT * FROM tb_cadastro WHERE tipo = 'usuario'";
         return $conexao->executaSQL($sql);
     }
 

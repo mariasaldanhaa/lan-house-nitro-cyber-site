@@ -86,6 +86,24 @@
                             Contato
                         </a>
                     </li>
+
+                    <li>
+                        |
+                    </li>
+
+                    <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'administrador') { ?>
+                        <li>
+                            <a href="frmListaCadastro.php">
+                                Gerenciar usuários
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frmListaProduto.php">
+                                Gerenciar produtos
+                            </a>
+                        </li>
+                    <?php }?>
                 </ul>
             </nav>
         </div>

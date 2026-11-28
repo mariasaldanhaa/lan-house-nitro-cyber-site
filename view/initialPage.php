@@ -1,5 +1,26 @@
 <?php
     session_start();
+
+    require_once('../controller/clsConexao.php');
+
+    $conexao = new clsConexao();
+    $mysqli = $conexao->getConexao();
+
+    $sql = "SELECT
+                p.id_produto,
+                p.nome_produto,
+                p.descricao_produto,
+                p.preco_produto,
+                p.preco_promocional_produto,
+                p.categoria_produto,
+                p.estoque_produto,
+                i.caminho_imagem
+            FROM tb_produto p
+            LEFT JOIN imagem_produto i
+                ON p.id_produto = i.id_produto
+            ORDER BY p.id_produto DESC";
+
+    $resultado = $mysqli->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +105,24 @@
                             Contato
                         </a>
                     </li>
+
+                    <li>
+                        |
+                    </li>
+
+                    <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'administrador') { ?>
+                        <li>
+                            <a href="frmListaCadastro.php">
+                                Gerenciar usuários
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frmListaProduto.php">
+                                Gerenciar produtos
+                            </a>
+                        </li>
+                    <?php }?>
                 </ul>
             </nav>
         </div>
@@ -102,10 +141,60 @@
             <div id="products">
                 <h2>Produtos</h2>
 
+                <!-- PRODUTOS -->
                 <div class="list-products">
-                    <?php
-                    
-                    ?>
+                    <?php if ($resultado && $resultado->num_rows > 0) { ?>
+
+                        <?php while ($produto = $resultado->fetch_assoc()) { ?>
+                            <div class="card-produto">
+
+                                <div class="imagem-produto">
+                                    <?php if (!empty($produto['caminho_imagem'])) { ?>
+                                        <img
+                                            src="<?= htmlspecialchars($produto['caminho_imagem']) ?>"
+                                            alt="<?= htmlspecialchars($produto['nome_produto']) ?>"
+                                        >
+                                    <?php } else { ?>
+                                        <div class="sem-imagem">Imagem indisponível</div>
+                                    <?php } ?>
+                                </div>
+
+                                <div class="info-produto">
+                                    <p class="categoria-produto">
+                                        <?= htmlspecialchars($produto['categoria_produto']) ?>
+                                    </p>
+
+                                    <h3>
+                                        <?= htmlspecialchars($produto['nome_produto']) ?>
+                                    </h3>
+
+                                    <p class="descricao-produto">
+                                        <?= htmlspecialchars($produto['descricao_produto']) ?>
+                                    </p>
+
+                                    <div class="precos-produto">
+                                        <?php if ($produto['preco_promocional_produto'] !== null) { ?>
+                                            <span class="preco-original">
+                                                R$ <?= number_format((float) $produto['preco_produto'], 2, ',', '.') ?>
+                                            </span>
+
+                                            <span class="preco-promocional">
+                                                R$ <?= number_format((float) $produto['preco_promocional_produto'], 2, ',', '.') ?>
+                                            </span>
+                                        <?php } else { ?>
+                                            <span class="preco-normal">
+                                                R$ <?= number_format((float) $produto['preco_produto'], 2, ',', '.') ?>
+                                            </span>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+
+                    <?php } else { ?>
+                        <p class="nenhum-produto">Nenhum produto cadastrado no momento.</p>
+                    <?php } ?>
                 </div>
             </div>
         </section>
