@@ -4,34 +4,57 @@ require_once('../controller/clsArquivo.php');
 require_once('clsComum.php');
 class clsCadastro extends clsComum{
     #variaveis privadas
+    protected $senha;
+    private $tipo = 'usuario';
     private $cidade;
     private $endereco;
     private $email;
     private $telefone;
     private $foto;
 
-    public function setcidade($valor) {
+    public function setSenha($valor) {
+        $this->senha = $valor;
+    }
+
+    public function getSenha() {
+        return $this->senha;
+    }
+
+    public function setTipo($valor) {
+        $permitidos = ['usuario', 'funcionario', 'administrador'];
+
+        // so grava se for um dos tres tipos
+        if (in_array($valor, $permitidos, true)) {
+            $this->tipo = $valor;
+        }
+    }
+
+    public function getTipo() {
+        return $this->tipo;
+    }
+
+    public function setCidade($valor) {
         $this->cidade = $valor;
     }
-    public function getcidade() {
+    public function getCidade() {
         return $this->cidade;
     }
-    public function setendereco($valor) {
+    public function setEndereco($valor) {
         $this->endereco = $valor;
     }
-    public function getendereco() {
+    public function getEndereco() {
         return $this->endereco;
     }
-    public function setemail($valor) {
+    public function setEmail($valor) {
         $this->email = $valor;
     }
-    public function getemail() {
+    public function getEmail() {
         return $this->email;
     }
-    public function settelefone($valor) {
+    public function setTelefone($valor) {
         $this->telefone = $valor;
     }
-    public function gettelefone() {
+    public function getTelefone() {
         return $this->telefone;
     }
    public function setFoto($valor) {
@@ -43,7 +66,7 @@ class clsCadastro extends clsComum{
 
     public function pegaCadastros(){
         $conexao = new clsConexao();
-        $sql = 'SELECT * FROM tb_cadastro;';
+        $sql = "SELECT * FROM tb_cadastro WHERE tipo = 'usuario'";
         return $conexao->executaSQL($sql);
     }
 
@@ -56,22 +79,29 @@ class clsCadastro extends clsComum{
     $gravador->setArquivo($this->foto);
     $gravador->upload();
 
+    # verificacao de senha
+    $senhaHash = password_hash($this->senha, PASSWORD_DEFAULT);
+    
     # salva dados do cadastro
     if ($novoCadastro == true) {
 
         # insert
         $sql = "INSERT INTO tb_cadastro(nome_cadastro,
-                                        cidade_cadastro,
-                                        endereco_cadastro,
-                                        email_cadastro,
-                                        telefone_cadastro,
-                                        foto_cadastro)
+                                cidade_cadastro,
+                                endereco_cadastro,
+                                email_cadastro,
+                                senha_cadastro,
+                                telefone_cadastro,
+                                foto_cadastro,
+                                tipo)
                 VALUES ('" . $this->nome . "',
                         '" . $this->cidade . "',
                         '" . $this->endereco . "',
                         '" . $this->email . "',
+                        '" . $senhaHash . "',
                         '" . $this->telefone . "',
-                        '" . $this->nome . ".jpg');";
+                        '" . $this->nome . ".jpg',
+                        '" . $this->tipo . "');";
 
     } else {
 
@@ -104,9 +134,6 @@ class clsCadastro extends clsComum{
             WHERE id_cadastro = " . $this->id . ";";
 
     return $conexao->executaSQL($sql);
-    }
-
-    
-    
+    }    
 }
 ?>

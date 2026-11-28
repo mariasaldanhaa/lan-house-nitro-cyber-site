@@ -1,4 +1,3 @@
-
 <?php
     class clsArquivo {
         private $nomeArquivo;

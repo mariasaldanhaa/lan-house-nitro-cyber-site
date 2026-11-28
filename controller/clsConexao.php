@@ -1,20 +1,18 @@
-
 <?php
-
     class clsConexao {
-
         private $host;
         private $usuario;
         private $senha;
         private $banco;
         private $conexao;
 
+        # informacoes do banco
+        # caso o nome do banco seja outro, apenas altera o nome no '$this->banco = ...;'
         public function __construct() {
-
             $this->host = 'localhost';
             $this->usuario = 'root';
             $this->senha = '';
-            $this->banco = 'bd_cadastro';
+            $this->banco = 'bd_nitro_cyber';
 
             $this->conexao = new mysqli(
                 $this->host,
@@ -34,5 +32,8 @@
             return $this->conexao->query($sql);
         }
 
+        public function getConexao() {
+            return $this->conexao;
+        }
 }
 ?>
