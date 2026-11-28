@@ -13,10 +13,12 @@ if (isset($_POST['btnEnviar'])) {
     $cadastro->setFoto($_FILES['txtFoto']);
 
     if ($cadastro->salvar()) {
-        echo "Cadastro realizado com sucesso!";
-        echo "<br><a href='frmListaCadastro.php'>Ver cadastros</a>";
+        $_SESSION['mensagemCadastro'] = "Cadastro realizado com sucesso!";
     } else {
-        echo "Erro ao realizar cadastro!";
+        $_SESSION['mensagemCadastro'] = "Erro ao realizar cadastro!";
     }
+
+    header("Location: loginPage.php");
+    exit;
 }
 ?>

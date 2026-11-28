@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -170,7 +174,7 @@
                                                 />
                                             </div>
 
-                                            <button id="btnUpload">RECORTAR IMAGEM</button>
+                                            <button type="button" id="btnUpload">APLICAR RECORTE</button>
 
                                             <input type="submit" name="btnEnviar" value="Cadastrar">
                                         </div>
@@ -178,6 +182,14 @@
                                 </td>
                             </tr>
                         </table>
+
+                        <?php
+                            if (isset($_SESSION['mensagemCadastro'])) {
+                                echo "<p>" . $_SESSION['mensagemCadastro'] . "</p>";
+
+                                unset($_SESSION['mensagemCadastro']);
+                            }
+                        ?>
                     </td>
                 </tr>
             </table>
