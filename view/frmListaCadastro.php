@@ -1,57 +1,39 @@
-
 <?php
-require_once("../model/clsCadastro.php");
-require_once("../controller/clsControlesHTML.php");
+    require_once("../model/clsCadastro.php");
+    require_once("../controller/clsControlesHTML.php");
 ?>
 
-<html>
-    <head>
-        <title>Lista de Cadastros</title>
-        <style>
-            table {
-                width:100%;
-            }
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th, td {
-                padding: 5px;
-                text-align: left;
-            }
-            table#t01 tr:nth-child(even) {
-                background-color: #eee;
-            }
-            table#t01 tr:nth-child(odd) {
-                background-color:#fff;
-            }
-            table#t01 th {
-                background-color: black;
-                color: white;
-            }
-        </style>
-    </head>
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="../css/listPage.css"/>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.svg"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
     <body>
-        <table>
-            <tr style="height:50px">
+        <table class="pagina-cadastro">
+            <tr>
                 <td colspan="2">
-                    <h1>Cadastros</h1>
+                    <h1>Gerenciamento de usuários</h1>
                 </td>
             </tr>
 
-            <tr style="height:50px">
+            <tr>
                 <td colspan="2">
-                    Seja bem vindo(a)!
+                    <p class="subtitulo">Consulte e gerencie os usuários cadastrados no sistema.</p>
                 </td>
             </tr>
 
-            <tr style="height:400px">
+            <tr>
                 <td colspan="2">
-                    <table style="height:400px;">
+                    <table class="tabela-conteudo">
                         <tr>
-                            <td style="width:150px; vertical-align:top;">
-                                <b>>> CADASTRO</b><br>
+                            <td class="menu-cadastros">
+                                <b>CADASTRO</b><br>
                                 <a href="frmListaCadastro.php">
                                     Lista de Cadastros
                                 </a>
@@ -61,7 +43,7 @@ require_once("../controller/clsControlesHTML.php");
                                 </a>
                             </td>
 
-                            <td style="vertical-align:top; text-align:left;">
+                            <td>
                                 <h2>LISTA DE CADASTROS</h2>
 
                                 <?php

@@ -189,6 +189,50 @@ body {
     box-shadow: 0 0 20px rgba(77, 163, 255, 0.4);
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.buttons form {
+    margin: 0;
+}
+
+.btn-perfil {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-editar {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-excluir {
+    background-color: #dc2626;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background-color: #b91c1c;
+}
+
 /* ---------- footer ---------- */
 footer {
     background-color: #0B1220;

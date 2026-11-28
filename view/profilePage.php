@@ -146,6 +146,27 @@
                     </p>
                 </div>
             </div>
+
+            <!-- BOTOES -->
+            <div class="buttons">
+                <!-- BOTAO PARA EDITAR PERFIL -->
+                <a href="editarPerfil.php" class=" btn-perfil btn-editar">
+                    <i class="bi bi-pencil-square"></i>
+                    Editar perfil
+                </a>
+                
+                <!-- BOTAO PARA EXCLUIR CONTA -->
+                <form 
+                    action="../model/excluirPerfil.php" 
+                    method="POST"
+                    onsubmit="return confirm('Tem certeza que deseja excluir sua conta?');"
+                >
+                    <button type="submit" class="btn-perfil btn-excluir">
+                        <i class="bi bi-trash"></i>
+                        Excluir perfil
+                    </button>
+                </form>
+            </div>
         </div>
 
         <!-- FOOTER -->
@@ -185,7 +206,6 @@
                     <h3>Onde estamos</h3>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.446689605749!2d-45.2751498!3d-20.8943409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b53e4c6d5de3db%3A0x3ef8f937fea446a7!2sLan%20House%20Nitro%20Cyber%20Internet%20%26%20Games!5e0!3m2!1sen!2sbr!4v1795323982798!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
-
             </div>
 
             <div id="footer-bottom">
