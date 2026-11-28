@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,17 +28,30 @@
                     </a>
 
                     <ul class="nav-user">
-                        <li>
-                            <a href="loginPage.php">
-                                Entrar
-                            </a>
-                        </li>
+                        <?php if (isset($_SESSION['id'])) { ?>
+                            <li>
+                                <a href="profilePage.php">
+                                    <?= htmlspecialchars($_SESSION['nome']) ?>
+                                </a>
+                            <li>
+                            <li>
+                                <a href="../model/clsLogout.php">
+                                    Sair
+                                </a>
+                            </li>
+                        <?php } else { ?>
+                            <li>
+                                <a href="loginPage.php">
+                                    Entrar
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="frmNovoCadastro.php">
-                                Cadastro
-                            </a>
-                        </li>
+                            <li>
+                                <a href="frmNovoCadastro.php">
+                                    Cadastro
+                                </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>

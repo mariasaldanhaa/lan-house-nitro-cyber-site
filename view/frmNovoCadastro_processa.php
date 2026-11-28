@@ -5,7 +5,7 @@ if (isset($_POST['btnEnviar'])) {
     $cadastro = new clsCadastro();
 
     $cadastro->setNome($_POST['txtNome']);
-    $cadastro->setSenha(password_hash($_POST['txtSenha'], PASSWORD_DEFAULT));
+    $cadastro->setSenha($_POST['txtSenha']);
     $cadastro->setCidade($_POST['txtCidade']);
     $cadastro->setEndereco($_POST['txtEndereco']);
     $cadastro->setEmail($_POST['txtEmail']);

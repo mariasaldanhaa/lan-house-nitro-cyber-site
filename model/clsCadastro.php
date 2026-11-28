@@ -79,6 +79,9 @@ class clsCadastro extends clsComum{
     $gravador->setArquivo($this->foto);
     $gravador->upload();
 
+    # verificacao de senha
+    $senhaHash = password_hash($this->senha, PASSWORD_DEFAULT);
+    
     # salva dados do cadastro
     if ($novoCadastro == true) {
 
@@ -95,7 +98,7 @@ class clsCadastro extends clsComum{
                         '" . $this->cidade . "',
                         '" . $this->endereco . "',
                         '" . $this->email . "',
-                        '" . $this->senha . "',
+                        '" . $senhaHash . "',
                         '" . $this->telefone . "',
                         '" . $this->nome . ".jpg',
                         '" . $this->tipo . "');";

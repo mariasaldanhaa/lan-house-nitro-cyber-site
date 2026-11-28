@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -93,6 +93,11 @@ session_start();
         <!-- TELA DE LOGIN -->
         <div id="login">
             <h2>ENTRAR</h2>
+
+            <?php 
+                if (isset($_GET['erro'])) { ?>
+                    <p class="erro">E-mail ou senha incorretos.</p>
+            <?php } ?>
 
             <form action="../model/clsLogin.php" method="post">
                 <!-- CAMPOS DE LOGIN -->
