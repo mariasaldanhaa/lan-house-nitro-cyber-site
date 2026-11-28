@@ -1,4 +1,5 @@
 <?php
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +28,20 @@
                     </a>
 
                     <ul class="nav-user">
+                        <?php if (isset($_SESSION['id'])) { ?>
+                            <li>
+                                <a href="profilePage.php">
+                                    <?php
+                                        echo htmlspecialchars($_SESSION['nome']);
+                                    ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../model/clsLogout.php">
+                                    Sair
+                                </a>
+                            </li>
+                        <?php } else { ?>
                         <li>
                             <a href="#">
                                 Entrar
@@ -34,10 +49,11 @@
                         </li>
 
                         <li>
-                            <a href="registerPage.php">
+                            <a href="frmNovoCadastro.php">
                                 Cadastro
                             </a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>
@@ -70,6 +86,24 @@
                             Contato
                         </a>
                     </li>
+
+                    <li>
+                        |
+                    </li>
+
+                    <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'administrador') { ?>
+                        <li>
+                            <a href="frmListaCadastro.php">
+                                Gerenciar usuários
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frmListaProduto.php">
+                                Gerenciar produtos
+                            </a>
+                        </li>
+                    <?php }?>
                 </ul>
             </nav>
         </div>
@@ -77,7 +111,12 @@
         <!-- TELA DE LOGIN -->
         <div id="login">
             <h2>ENTRAR</h2>
-            
+
+            <?php 
+                if (isset($_GET['erro'])) { ?>
+                    <p class="erro">E-mail ou senha incorretos.</p>
+            <?php } ?>
+
             <form action="../model/clsLogin.php" method="post">
                 <!-- CAMPOS DE LOGIN -->
                 <div id="campos">
@@ -90,7 +129,7 @@
 
                         <input
                             type="email"
-                            placeholder="Digite seu e-email"
+                            placeholder="Digite seu e-mail"
                             id="login-email"
                             name="txtEmail"
                             required
@@ -129,8 +168,11 @@
                     <p class="footer-slogan">Tecnologia e diversão em um só lugar!</p>
 
                     <h3>Contato</h3>
-                    <a href="tel:+5535988160020" class="footer-link">
-                        <i class="fa-solid fa-phone"></i> (35) 98816-0020
+                    <a href="https://wa.me/5535992160020" target="_blank" class="footer-link">
+                        <i class="fa-solid fa-phone"></i> (35) 99216-0020
+                    </a>
+                    <a href="mailto:atendimentonitrocb2@gmail.com" class="footer-link">
+                        <i class="fa-solid fa-envelope"></i> atendimentonitrocb2@gmail.com
                     </a>
                 </div>
 
@@ -150,7 +192,7 @@
 
                 <div class="footer-col">
                     <h3>Onde estamos</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.446689605749!2d-45.2751498!3d-20.8943409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b53e4c6d5de3db%3A0x3ef8f937fea446a7!2sLan%20House%20Nitro%20Cyber%20Internet%20%26%20Games!5e0!3m2!1sen!2sbr!4v1795323982798!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
 
             </div>

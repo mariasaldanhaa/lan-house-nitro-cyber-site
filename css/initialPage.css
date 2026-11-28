@@ -256,6 +256,88 @@ footer {
     color: var(--cor-texto-titulos-secundarios);
 }
 
+/* ---------- produtos ---------- */
+.list-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    gap: 16px;
+    justify-content: start;
+    margin-top: 20px;
+}
+
+.card-produto {
+    background-color: var(--cor-secundaria-cards);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+}
+
+.imagem-produto {
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.info-produto {
+    padding: 12px;
+}
+
+.categoria-produto {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.info-produto h3 {
+    margin-bottom: 10px;
+}
+
+.descricao-produto {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.precos-produto {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.preco-original {
+    color: #aaa;
+    font-size: 14px;
+    text-decoration: line-through;
+}
+
+.preco-promocional,
+.preco-normal {
+    color: #ffd447;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nenhum-produto {
+    color: #ccc;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
 /* ---------- responsividade ---------- */
 @media (max-width: 600px) {
     #header nav {
