@@ -128,8 +128,8 @@
                     <p class="footer-slogan">Tecnologia e diversão em um só lugar!</p>
 
                     <h3>Contato</h3>
-                    <a href="tel:+5535988160020" class="footer-link">
-                        <i class="fa-solid fa-phone"></i> (35) 98816-0020
+                    <a href="https://wa.me/5535992160020" target="_blank" class="footer-link">
+                        <i class="fa-solid fa-phone"></i> (35) 99216-0020
                     </a>
                     <a href="mailto:atendimentonitrocb2@gmail.com" class="footer-link">
                         <i class="fa-solid fa-envelope"></i> atendimentonitrocb2@gmail.com

@@ -105,44 +105,46 @@
 
         <!-- INFORMAÇÕES DO USUÁRIO -->
         <div id="profile">
-            <div>
-                <h2>Meu perfil</h2>
+            <h2>Meu perfil</h2>
 
+            <div id="informations">
                 <img
                     src="<?= htmlspecialchars('img/' . $usuario['foto_cadastro'], ENT_QUOTES, 'UTF-8') ?>"
                     alt="Foto de perfil"
                     class="foto-perfil"
                 />
 
-                <!-- NOME -->
-                <span>
-                    Nome:
-                    <?= htmlspecialchars($usuario['nome_cadastro']) ?>
-                </span>
+                <div class="list-info">
+                    <!-- NOME -->
+                    <p>
+                        <span class="rotulo"><i class="fa-solid fa-user"></i>Nome: </span>
+                        <?= htmlspecialchars($usuario['nome_cadastro']) ?>
+                    </p>
 
-                <!-- E-MAIL -->
-                <span>
-                    E-mail:
-                    <?= htmlspecialchars($usuario['email_cadastro']) ?>
-                </span>
+                    <!-- E-MAIL -->
+                    <p>
+                        <span class="rotulo"><i class="fa-solid fa-envelope"></i>E-mail: </span>
+                        <?= htmlspecialchars($usuario['email_cadastro']) ?>
+                    </p>
 
-                <!-- CIDADE -->
-                <span>
-                    Cidade:
-                    <?= htmlspecialchars($usuario['cidade_cadastro']) ?>
-                </span>
+                    <!-- CIDADE -->
+                    <p>
+                        <span class="rotulo"><i class="fa-solid fa-city"></i>Cidade: </span>
+                        <?= htmlspecialchars($usuario['cidade_cadastro']) ?>
+                    </p>
 
-                <!-- ENDERECO -->
-                <span>
-                    Endereço:
-                    <?= htmlspecialchars($usuario['endereco_cadastro']) ?>
-                </span>
+                    <!-- ENDERECO -->
+                    <p>
+                        <span class="rotulo"><i class="fa-solid fa-location-dot"></i>Endereço: </span>
+                        <?= htmlspecialchars($usuario['endereco_cadastro']) ?>
+                    </p>
 
-                <!-- TELEFONE -->
-                <span>
-                    Telefone:
-                    <?= htmlspecialchars($usuario['telefone_cadastro']) ?>
-                </span>
+                    <!-- TELEFONE -->
+                    <p>
+                        <span class="rotulo"><i class="fa-solid fa-phone"></i>Telefone: </span>
+                        <?= htmlspecialchars($usuario['telefone_cadastro']) ?>
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -157,8 +159,8 @@
                     <p class="footer-slogan">Tecnologia e diversão em um só lugar!</p>
 
                     <h3>Contato</h3>
-                    <a href="tel:+5535988160020" class="footer-link">
-                        <i class="fa-solid fa-phone"></i> (35) 98816-0020
+                    <a href="https://wa.me/5535992160020" target="_blank" class="footer-link">
+                        <i class="fa-solid fa-phone"></i> (35) 99216-0020
                     </a>
                     <a href="mailto:atendimentonitrocb2@gmail.com" class="footer-link">
                         <i class="fa-solid fa-envelope"></i> atendimentonitrocb2@gmail.com
